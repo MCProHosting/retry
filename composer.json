@@ -1,0 +1,22 @@
+{
+    "name": "mcprohosting/retry",
+    "description": "while (!$success) { tryAgain(); }",
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Connor Peet",
+            "email": "connor@connorpeet.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Mcprohosting\\Retry": "src/"
+        }
+    },
+    "require": {
+
+    }
+}
