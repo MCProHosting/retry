@@ -8,8 +8,8 @@ Retry is a useful class to allow you to retry tasks until they work, optionally 
 
 ```php
 
-// This retries running the given function until "working" is returned. It retries up to ten times, pausing for
-// 1000 ms (one second) in between attempts.
+// This retries running the given function until "working" is returned. It retries
+// up to ten times, pausing for 1000 ms (one second) in between attempts.
 
 Retry::running(function () {
     if (doSomething()) {
@@ -21,12 +21,14 @@ Retry::running(function () {
   ->delay(1000)
   ->go(10);
 
-// Passing a callable in "soLongAs" allows you to transform the output before testing its value. Retry will also return
-// the last value gotten from running(), if it did ever success, or the boolean false if it did not.
+// Passing a callable in "soLongAs" allows you to transform the output before
+// testing its value. Retry will also return the last value gotten from
+// running(), if it did ever succeed, or the boolean false if it did not.
+
 $arrayThing = Retry::running(function () {
     return complicatedArrayThing();
 })->soLongAs(function ($arrayThing) {
-    return transformToString($arrayThing);
+    return !! $arrayThing;
 })->is(false)->go(5);
 
 if ($arrayThing === false) {
